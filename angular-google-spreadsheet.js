@@ -89,6 +89,79 @@ function spreadsheet($http, $q) {
   };
 }
 
+
+/**
+ * Stores a translation fetched from Google Spreadsheets while allowing it to live update it
+ */
+function translationBuffer(){
+  var translationBuffer = {},
+      objectStored = false;
+
+  translationBuffer.getLang = function(key){
+    return objectStored[key];
+  };
+
+  translationBuffer.isSet = function(){
+    return (objectStored !== false);
+  };
+
+  translationBuffer.set = function(obj){
+    objectStored = obj;
+  };
+
+  translationBuffer.update = function(lang, key, value){
+    if (typeof objectStored[lang] === undefined){
+      objectStored[lang] = {};
+    }
+    var keyPath = key.split(',');
+    var currentObject = objectStored[lang];
+    //travers key path to set value
+    for (var i=0,ii=keyPath.length-1;i<ii;i+=1){
+      if (typeof currentObject[keyPath[i]] === 'undefined'){
+        currentObject[keyPath[i]] = {};
+      }
+      currentObject = currentObject[keyPath[i]];
+    }
+    currentObject[keyPath[keyPath.length-1]] = value;
+  };
+
+  return translationBuffer;
+}
+
+
+
+/*
+ * Custom Loader for angular-translate
+ */
+function googleSpreadsheetLoader($http, $q, spreadsheet, translationBuffer) {
+    // return loaderFn
+    return function (options) {
+      var deferred = $q.defer();
+      console.log('translationBuffer.isSet()',translationBuffer.isSet());
+      if (!translationBuffer.isSet()){
+        spreadsheet('list', 
+                    options.id,
+                    options.sheet,
+                    'translations').then(
+          function(data){
+            translationBuffer.set(data);
+            return deferred.resolve(translationBuffer.getLang(options.key));
+          }
+        );
+      } else {
+        deferred.resolve(translationBuffer.getLang(options.key));
+      }
+      return deferred.promise;
+    };
+}
+
+
+
+/**
+ * Module definition 
+ */ 
 angular.
- module('ngGSpreadsheet', []).
- factory('spreadsheet', ['$http', '$q', spreadsheet]);
+ module('ngGSpreadsheet', [])
+ .factory('spreadsheet', ['$http', '$q', spreadsheet])
+ .factory('translationBuffer', translationBuffer)
+ .factory('googleSpreadsheetLoader', ['$http', '$q', 'spreadsheet', 'translationBuffer', googleSpreadsheetLoader]);
