@@ -17,6 +17,11 @@ Use a Google Spreadsheet to translate your webapp. See the changes in your app i
 - AngularJS app with [angular-translate](http://angular-translate.github.io/) module
 
 
+## Data flow
+
+![Image of data flow](https://docs.google.com/drawings/d/1nVJU2Jfj7CvgVad9DjczfvgNV0GRYamdmWg6SbUG2oM/pub?w=720&h=804)
+
+
 ## Setup
 
 #### PubNub
