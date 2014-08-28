@@ -5,6 +5,15 @@ Service to fetch Googe Speadsheet data via JSON
 
 
 
+Use Case #1 - Real time translations
+------------------------------------
+
+Use Google Spreadsheet to tranlsatate your webapp. See the changes in realtime.
+
+Requirements:
+
+
+
 *AngularJS configuration*
 
     .config(function ($translateProvider) {
@@ -30,3 +39,8 @@ Service to fetch Googe Speadsheet data via JSON
       translationBuffer.update('de', 'NAVBAR.SEARCH', 'Finden');
       $translate.refresh();
     }
+
+
+Resources:
+
+Using PubNub with AngluarJS http://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/
