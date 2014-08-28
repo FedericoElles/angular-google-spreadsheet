@@ -151,3 +151,4 @@ var myApp = angular.module('myApp', [...]) //your app module
 
 - [Using PubNub with AngluarJS ](http://www.pubnub.com/blog/angularjs-101-from-zero-to-angular-in-seconds/)
 - [PubNub REST API](http://www.pubnub.com/http-rest-push-api/)
+- [Google Apps Script - Connecting to external APIs](https://developers.google.com/apps-script/guides/services/external)
