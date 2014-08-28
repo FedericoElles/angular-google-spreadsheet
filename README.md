@@ -30,7 +30,7 @@ Use a Google Spreadsheet to translate your webapp. See the changes in your app i
 
  - Create a new Google Spreadsheet
  - Make it public: 'File' -> 'Publish to the web'
- - Copy the unique file id: "...docs.google.com/spreadsheets/d/**1-TdI_u4vMrxQC8orUrv1TNnLRN8WAyfvnk8rDvR8A2o**/..."
+ - Copy the unique file id: "...docs.google.com/spreadsheets/d/**1-TdI_u4vMrxQC9orurv1TNnLRN8wayfvnk8rdvr8A4o**/..."
  - Design the spreadsheet. It should look like
 
 
