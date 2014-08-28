@@ -34,18 +34,12 @@ Use a Google Spreadsheet to translate your webapp. See the changes in your app i
  - Design the spreadsheet. It should look like
 
 
+
 key | en | de
---- | -- | --
+------------ | ------------- | -------------
 NAVBAR.SEARCH | Search | Suche
 NAVBAR.INSERT | Insert | Eingabe
 NAVBAR.HELLO | Hello | Hallo
-
-
-First Header | Second Header
------------- | -------------
-Content from cell 1 | Content from cell 2
-Content in the first column | Content in the second column
-
 
  - Open 'Tools' -> 'Script Editor', so we can add a script to submit changes to PubNub
  - Paste the following code
