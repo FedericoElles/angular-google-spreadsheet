@@ -1,7 +1,7 @@
 angular-google-spreadsheet
 ==========================
 
-Service to fetch Googe Speadsheet data via JSON
+Service to fetch Google Speadsheet data via JSON
 
 
 
@@ -101,7 +101,7 @@ bower install angular-translate angular-google-spreadsheet pubnub-angular --save
 3. Setup angular-translate with Google Spreadsheet Translation Provider
 
 ```javascript
-var myApp = angular.module('myApp', [...]) //your app module
+var myApp = angular.module('myApp', ['pascalprecht.translate', 'ngGSpreadsheet', 'PubNub']) //your app module
 
 .config(function ($translateProvider) {
   $translateProvider.useLoader('googleSpreadsheetLoader', {
@@ -115,7 +115,7 @@ var myApp = angular.module('myApp', [...]) //your app module
 4. Changing language is done via angular-translate. You have to inject the **$translate** service.
 
 ```javascript
-.run(function($translate, pubNub, translationBuffer){... // Inject Services
+.run(function($translate, PubNub, translationBuffer){... // Inject Services
 	
   $rootScope.changeLanguage = function (langKey) {
   $translate.use(langKey);
