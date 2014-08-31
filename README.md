@@ -126,7 +126,7 @@ var myApp = angular.module('myApp', ['pascalprecht.translate', 'ngGSpreadsheet',
 5. Updating the language in realtime requires the **PubNub** and **translationBuffer** services.
 
 ```javascript
-.run(function($translate, PubNub, translationBuffer){... // Inject Services
+.run(function($rootScope, $translate, PubNub, translationBuffer){ // Inject Services
 
   //connect to PubNub
   PubNub.init({
@@ -147,7 +147,7 @@ var myApp = angular.module('myApp', ['pascalprecht.translate', 'ngGSpreadsheet',
 
     //Tell angular-translate to fetch new translations from 
     $translate.refresh();
-  });
+  })
 ```  
 
 6. Test: Change any translation in the Google Spreadsheet and validate if a message from PubNub arrives in your AngularJS app. The translated text value should change instantly.
