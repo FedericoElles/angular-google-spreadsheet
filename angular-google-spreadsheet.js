@@ -137,7 +137,7 @@ function googleSpreadsheetLoader($http, $q, spreadsheet, translationBuffer) {
     // return loaderFn
     return function (options) {
       var deferred = $q.defer();
-      console.log('translationBuffer.isSet()',translationBuffer.isSet());
+      //console.log('translationBuffer.isSet()',translationBuffer.isSet());
       if (!translationBuffer.isSet()){
         spreadsheet('list', 
                     options.id,
